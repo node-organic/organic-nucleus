@@ -1,0 +1,24 @@
+{
+  "name": "organic-nucleus",
+  "version": "0.0.1",
+  "description": "Implementation of [node-organic/Nucleus] as standalone module",
+  "main": "index.js",
+  "dependencies": {
+    "organic": "~0.1.1",
+    "reactions": "~0.0.13"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/outbounder/organic-nucleus.git"
+  },
+  "author": "Boris Filipov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/outbounder/organic-nucleus/issues"
+  },
+  "homepage": "https://github.com/outbounder/organic-nucleus"
+}
