@@ -1,9 +1,11 @@
 var Nucleus = require("organic").Nucleus
 var util = require("util")
 var R = require("reactions")
+var selectBranch = require("organic-dna-branches").selectBranch
 
 module.exports = function(plasma, dna){
-  Nucleus.call(this, plasma, dna)
+  this.dna = dna
+  this.plasma = plasma
 }
 
 util.inherits(module.exports, Nucleus);
@@ -27,13 +29,12 @@ module.exports.prototype.buildOne = function(c, callback){
 }
 
 module.exports.prototype.build = function(c, callback) {
-  if(c.source) {
+  if(c.source)
     return this.buildOne(c, callback)
-  }
   if(c.branch)
-    c = this.dna.selectBranch(c.branch)
+    c = selectBranch(this.dna, c.branch)
   if(typeof c == "string")
-    c = this.dna.selectBranch(c)
+    c = selectBranch(this.dna, c)
 
   var self = this
   R.fn.mapHash(function(buildChemical, done){

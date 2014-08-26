@@ -1,28 +1,54 @@
 # organic-nucleus
 
-Implementation of [node-organic/Nucleus] as standalone module
+Implementation of [node-organic/Nucleus](https://github.com/VarnaLab/node-organic/blob/master/docs/Nucleus.md)
 
 ## api
 
-### buildOne(c)
+### buildOne(c [, callback])
 
-  * `c.source` having value of
-    * function - used as Class constructor
-    * string - used as path relative to cwd to require Class implementation
+Builds once organelle using data wrapped in chemical `c`.
 
-All Classes instantiated by Nucleus are expected to have the following signature
+Chemical should have the following structure:
 
-    function(plasma, dna)
+    {
+      "source": "cwd/relative/path/to/organelle",
+      // ... organelle's own dna data
+    }
+
+
+  * `c.source` having value typeof
+    * Function - used as Class constructor
+    * String - used as path relative to cwd to require Class implementation
+
+All Modules representing Organelles instantiated by Nucleus are expected to have the following signature
+
+    module.exports = function(plasma, dna) {}
 
 Where:
 
   * `plasma` is the Nucleus' plasma
   * `dna` is the portion of the dna used to instantiate the Class
 
-### build(c)
+### build(c [, callback])
 
-Chemical having one of the following:
+Builds organelles using data wrapped in chemical `c`.
+
+Chemical should have one of the following structures:
+
+    {
+      "source": "cwd/relative/path/to/organelle",
+      // ... organelle's own dna data
+
+      -- or --
+
+      "branch": "branch.innerBranch"
+    }
+
+    -- or --
+
+    "branch.innerBranch"
+
 
   * `c.source` - directly passes control flow to `buildOne` 
-  * `c.branch` - selects dna node using dot notation namespace query (ex: "cell.innerNode") and iterates through the dna node by constructing all found organelles
-  * `c` as String - indicates dna namespace, uses the same control flow as using `c.branch`
+  * `c.branch` - selects dna node using dot notation namespace query (ex: "branch.innerNode") and iterates through the dna node by constructing all found organelles (those dna branches who have `source` property).
+  * `c` as String - indicates dna namespace, uses the same control flow as with chemicals having `c.branch`
