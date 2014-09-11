@@ -18,6 +18,7 @@ module.exports.prototype.buildOne = function(c, callback){
   }
 
   var objectConfig = c;
+  if(!objectConfig) return callback && callback()
   if(!objectConfig.source)
     return callback && callback(new Error("can not create object without source but with "+util.inspect(c)));
   var source = objectConfig.source;
