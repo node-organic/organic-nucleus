@@ -11,14 +11,14 @@ Builds once organelle using data wrapped in chemical `c`.
 Chemical should have the following structure:
 
     {
-      "source": "cwd/relative/path/to/organelle",
+      "source": "relative/path/to/organelle",
       // ... organelle's own dna data
     }
 
 
   * `c.source` having value typeof
     * Function - used as Class constructor
-    * String - used as path relative to cwd to require Class implementation
+    * String - used as path relative to `process.env.NODE_PATH` || `process.cwd()`  to require Class implementation
 
 All Modules representing Organelles instantiated by Nucleus are expected to have the following signature
 
@@ -49,6 +49,6 @@ Chemical should have one of the following structures:
     "branch.innerBranch"
 
 
-  * `c.source` - directly passes control flow to `buildOne` 
+  * `c.source` - directly passes control flow to `buildOne`
   * `c.branch` - selects dna node using dot notation namespace query (ex: "branch.innerNode") and iterates through the dna node by constructing all found organelles (those dna branches who have `source` property).
   * `c` as String - indicates dna namespace, uses the same control flow as with chemicals having `c.branch`
