@@ -12,13 +12,14 @@ Chemical should have the following structure:
 
     {
       "source": "relative/path/to/organelle",
+      "source": "organic-organelle-name-also-works",
       // ... organelle's own dna data
     }
 
 
   * `c.source` having value typeof
     * Function - used as Class constructor
-    * String - used as path relative to `process.env.NODE_PATH` || `process.cwd()`  to require Class implementation
+    * String - used as path relative to `process.cwd()` or package name (as installed module) to require Class implementation
 
 All Modules representing Organelles instantiated by Nucleus are expected to have the following signature
 
