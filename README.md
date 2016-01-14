@@ -10,6 +10,7 @@ ___arguments___
 * `plasma` - organic plasma instance
 * `dna` - dna containing definitions of organelles and their respective `source` paths.
 * `root` - organelles root, will be prepended **only when `source` starts with `./`**
+  * defaults to `process.env.ORGANELLES_PATH || process.cwd()`
 
 ### buildOne(c [, callback])
 
