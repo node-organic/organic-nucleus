@@ -1,12 +1,12 @@
 {
   "name": "organic-nucleus",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "Implementation of node-organic/Nucleus",
   "main": "index.js",
   "dependencies": {
-    "organic": "~0.2.0",
+    "organic": ">=1.0.0",
     "organic-dna-branches": "0.0.2",
-    "reactions": "~0.0.13"
+    "reactions": "0.0.13"
   },
   "devDependencies": {
     "jasmine-node": "^1.14.5"
