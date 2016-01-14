@@ -3,7 +3,7 @@ var Organel = require("organic").Organel
 var fakePlasma = {}
 
 describe("Nucleus", function(){
-  
+
   it("should create new instance", function(){
     nucleus = new Nucleus();
   });
@@ -12,10 +12,10 @@ describe("Nucleus", function(){
     var dna = {
       "objects": {
         "MyObject1": {
-          "source": "test/data/organel"
+          "source": "./test/data/organel"
         },
         "MyObject2": {
-          "source": "test/data/organel"
+          "source": "./test/data/organel"
         }
       }
     }

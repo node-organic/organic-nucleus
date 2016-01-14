@@ -2,10 +2,12 @@ var Nucleus = require("organic").Nucleus
 var util = require("util")
 var R = require("reactions")
 var selectBranch = require("organic-dna-branches").selectBranch
+var path = require('path')
 
-module.exports = function(plasma, dna){
+module.exports = function(plasma, dna, root){
   this.dna = dna
   this.plasma = plasma
+  this.root = root || process.env.ORGANELLES_PATH || process.cwd()
 }
 
 util.inherits(module.exports, Nucleus);
@@ -22,8 +24,8 @@ module.exports.prototype.buildOne = function(c, callback){
   if(!objectConfig.source)
     return callback && callback(new Error("can not create object without source but with "+util.inspect(c)));
   var source = objectConfig.source;
-  if(source.indexOf("/") !== 0 && source.indexOf(":\\") !== 1)
-    source = (process.env.NODE_PATH || process.cwd())+"/"+source;
+  if(source.indexOf("./") === 0 || source.indexOf(".\\") === 0)
+    source = path.join(this.root, source);
   var OrganelClass = require(source);
   var instance = new OrganelClass(this.plasma, objectConfig);
   return callback && callback(null, instance);
