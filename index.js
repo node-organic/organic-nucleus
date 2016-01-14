@@ -23,7 +23,7 @@ module.exports.prototype.buildOne = function(c, callback){
     return callback && callback(new Error("can not create object without source but with "+util.inspect(c)));
   var source = objectConfig.source;
   if(source.indexOf("/") !== 0 && source.indexOf(":\\") !== 1)
-    source = (process.env.NODE_PATH || process.cwd())+"/"+source;
+    source = (process.env.ROOT_PATH || process.cwd())+"/"+source;
   var OrganelClass = require(source);
   var instance = new OrganelClass(this.plasma, objectConfig);
   return callback && callback(null, instance);

@@ -18,7 +18,7 @@ Chemical should have the following structure:
 
   * `c.source` having value typeof
     * Function - used as Class constructor
-    * String - used as path relative to `process.env.NODE_PATH` || `process.cwd()`  to require Class implementation
+    * String - used as path relative to `process.env.ROOT_PATH` || `process.cwd()`  to require Class implementation
 
 All Modules representing Organelles instantiated by Nucleus are expected to have the following signature
 
