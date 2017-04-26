@@ -21,9 +21,9 @@ module.exports.prototype.buildOne = function(c, callback){
 
   var objectConfig = c;
   if(!objectConfig) return callback && callback()
-  if(!objectConfig.source)
+  if(!objectConfig.source && typeof objectConfig !== 'string')
     return callback && callback(new Error("can not create object without source but with "+util.inspect(c)));
-  var source = objectConfig.source;
+  var source = objectConfig.source ? objectConfig.source : objectConfig;;
   if(source.indexOf("./") === 0 || source.indexOf(".\\") === 0)
     source = path.join(this.root, source);
   var OrganelClass = require(source);
