@@ -2,26 +2,36 @@
   "name": "organic-nucleus",
   "version": "1.0.1",
   "description": "Implementation of node-organic/Nucleus",
-  "main": "index.js",
+  "main": "lib/nucleus-node.js",
+  "browser": "lib/nucleus-browser.js",
   "dependencies": {
     "organic": ">=1.0.0",
     "organic-dna-branches": "0.0.2",
     "reactions": "0.0.13"
   },
   "devDependencies": {
+    "eslint": "^4.18.2",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.0.1",
     "jasmine-node": "^1.14.5"
   },
   "scripts": {
-    "test": "jasmine-node ./test"
+    "test": "jasmine-node ./test",
+    "release-patch": "npm run test && npm version patch && npm publish && git push --tags && git push origin master",
+    "release-minor": "npm run test && npm version minor && npm publish && git push --tags && git push origin master",
+    "release-major": "npm run test && npm version major && npm publish && git push --tags && git push origin master"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/outbounder/organic-nucleus.git"
+    "url": "git://github.com/node-organic/organic-nucleus.git"
   },
   "author": "Boris Filipov",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/outbounder/organic-nucleus/issues"
+    "url": "https://github.com/node-organic/organic-nucleus/issues"
   },
-  "homepage": "https://github.com/outbounder/organic-nucleus"
+  "homepage": "https://github.com/node-organic/organic-nucleus"
 }
