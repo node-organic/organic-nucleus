@@ -1,6 +1,6 @@
 {
   "name": "organic-nucleus",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Implementation of node-organic/Nucleus",
   "main": "lib/nucleus-node.js",
   "browser": "lib/nucleus-browser.js",
