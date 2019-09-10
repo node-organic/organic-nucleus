@@ -7,7 +7,8 @@
   "dependencies": {
     "organic": ">=1.0.0",
     "organic-dna-branches": "0.0.2",
-    "reactions": "0.0.13"
+    "reactions": "0.0.13",
+    "resolve": "^1.12.0"
   },
   "devDependencies": {
     "eslint": "^4.18.2",
@@ -19,7 +20,7 @@
     "jasmine-node": "^1.14.5"
   },
   "scripts": {
-    "test": "jasmine-node ./test",
+    "test": "jasmine-node ./test --captureExceptions",
     "release-patch": "npm run test && npm version patch && npm publish && git push --tags && git push origin master",
     "release-minor": "npm run test && npm version minor && npm publish && git push --tags && git push origin master",
     "release-major": "npm run test && npm version major && npm publish && git push --tags && git push origin master"
